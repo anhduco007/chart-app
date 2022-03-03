@@ -59,7 +59,7 @@ export class ChartComponent implements OnInit {
   private _autosize: ChartingLibraryWidgetOptions['autosize'] = true;
   private _containerId: ChartingLibraryWidgetOptions['container_id'] = 'tv_chart_container';
   private _tvWidget: IChartingLibraryWidget | null = null;
-  Datafeed!:IBasicDataFeed;
+  datafeed!:IBasicDataFeed;
   timezone:Timezone='Etc/UTC';
   supportedResolutions:string[] = ["1", "3", "5", "30", "60", "120", "240","1440", "10080"]
   historyDepthReturn:HistoryDepth | undefined;
@@ -90,7 +90,7 @@ export class ChartComponent implements OnInit {
     this.loadData();
     const widgetOptions: ChartingLibraryWidgetOptions = { 
         symbol: this._symbol,
-        datafeed: this.Datafeed,
+        datafeed: this.datafeed,
         interval: this._interval,
         container_id: this._containerId,
         library_path: this._libraryPath,
@@ -120,7 +120,7 @@ export class ChartComponent implements OnInit {
   }
 
   loadData(){
-    this.Datafeed = {
+    this.datafeed = {
       onReady: cb => {
         setTimeout(() => cb(this.config), 0)},
         searchSymbols: (userInput, exchange, symbolType, onResultReadyCallback) => {},
