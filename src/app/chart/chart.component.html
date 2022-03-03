@@ -1,0 +1,12 @@
+<div style="display: flex">
+  <div 
+    *ngFor="let item of selectOptions; index as index"
+    (click)="changeResolution(index)"
+    [ngStyle]="{'color': optionSelected === index ? 'red' : 'black'}"
+    class="selector"
+    >
+    {{item.name}}
+  </div>
+</div>
+
+<div id="tv_chart_container" style="width: 80vw; height: 50vh"></div>
