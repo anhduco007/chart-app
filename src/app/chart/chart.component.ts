@@ -10,7 +10,6 @@ import {
   Bar,
 } from '../../assets/charting_library/charting_library.min';
 import { AppService } from '../service/app.service';
-import { SocketService } from '../service/socket.service';
 
 @Component({
   selector: 'app-chart',
@@ -82,7 +81,6 @@ export class ChartComponent implements OnInit {
 
   constructor(
     private appService: AppService,
-    private socketService: SocketService
   ) {
   }
 
@@ -187,13 +185,8 @@ export class ChartComponent implements OnInit {
             }
           })
         },
-        subscribeBars: (symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) => {
-          this.socketService.subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback)
-        },
-        unsubscribeBars: subscriberUID => {
-          this.socketService.unsubscribeBars(subscriberUID);
-        },
-          
+        subscribeBars: (symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) => {},
+        unsubscribeBars: subscriberUID => {},
     }
   }
 

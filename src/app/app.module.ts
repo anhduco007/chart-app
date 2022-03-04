@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ChartComponent } from './chart/chart.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SocketService } from './service/socket.service';
 import { AppService } from './service/app.service';
 
 @NgModule({
@@ -16,7 +15,7 @@ import { AppService } from './service/app.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [SocketService, AppService],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
